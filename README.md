@@ -1,6 +1,6 @@
 # Tree species identification using MinkNet
 
-This repository contains the scripts for training and inference a deep-learning 
+This repository contains the scripts for training and inference of a deep-learning 
 based tree species identification model utilizing terrestrial 3D point clouds (TLS, MLS, ULS) 
 developed in the frame of the [3DForEcoTech data science competition](https://github.com/stefp/Tr3D_species).
 The algorithm was developed using [Minkowski Engine](https://github.com/NVIDIA/MinkowskiEngine), 
@@ -11,7 +11,7 @@ an auto-differentiation library for sparse tensors.
 
 ## Environment
 
-To setup the working environment, please follow the instructions from 
+To set up the working environment, please follow the instructions from 
 [Minkowski Engine](https://github.com/NVIDIA/MinkowskiEngine) original source page. 
 Additionally, [laspy](https://laspy.readthedocs.io/en/latest/index.html) library 
 was installed to read LAS data format. 
@@ -29,7 +29,7 @@ and performing 3D convolutions in the next layers.
 We calibrated the network using a 90/10 train/val split of the data provided 
 within the [tree species benchmark](https://github.com/stefp/Tr3D_species). 
 The best model was selected based on its performance (F1-score) on validation data. 
-We trained the network with following hyperparameter set:
+We trained the network with the following hyperparameter set:
 
 - Point number: 16384
 - Voxel size: 0.1 m
@@ -52,7 +52,7 @@ python train.py   --data_root data \
                   --weights treespecies.pth 
 ```
 
-The --data_root directory should be structured as following: 
+The --data_root directory should be structured as follows: 
 ```
 |-- data                    # root_dir
 |   |-- train               # folder containing train/val data
@@ -73,7 +73,7 @@ GPU with 12 GB memory. The maximal GPU memory consumption during training was ar
 
 ### Deploying to new data 
 
-Predictions on new data can be done as following: 
+Predictions on new data can be done as follows: 
 ```
 python predict.py   --data data/test \                        # path to your folder with LAS files
                     --out_file data/test_prediction.csv \     # path to the output file
@@ -81,9 +81,9 @@ python predict.py   --data data/test \                        # path to your fol
                     --n_iterations 50 \ 
                     --voxel_size 0.1 
 ```
-The structure of the "data/test" directory is indicated on the schema above. PLEASE NOTE that the 
+The structure of the "data/test" directory is indicated in the schema above. PLEASE NOTE that the 
 model weights are stored in a Zenodo repository (add link here) separately. 
-To predict the test data from the [tree species benchmark](https://github.com/stefp/Tr3D_species), the network was applied to the same object for 50 times (--n_iterations). Each time 
+To predict the test data from the [tree species benchmark](https://github.com/stefp/Tr3D_species), the network was applied to the same object 50 times (--n_iterations). Each time 
 the object was randomly rotated around its Z axis. The final class label was chosen 
 using majority voting (as the most frequently predicted label).
 
