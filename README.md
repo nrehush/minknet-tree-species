@@ -1,10 +1,11 @@
-# Tree species identification using MinkNet
+# Tree species identification from drone-based, mobile and terrestrial LiDAR data using MinkNet
 
-This repository contains the scripts for training and inference of a deep-learning 
-based tree species identification model utilizing terrestrial 3D point clouds (TLS, MLS, ULS) 
-developed in the frame of the [3DForEcoTech data science competition](https://github.com/stefp/Tr3D_species).
+This repository contains the scripts for training and infering a deep-learning 
+based model for tree species identification from drone-based, mobile and terrestrial LiDAR data. This work has been done 
+in the frame of the [3DForEcoTech data science competition](https://github.com/stefp/Tr3D_species).
 The algorithm was developed using [Minkowski Engine](https://github.com/NVIDIA/MinkowskiEngine), 
-an auto-differentiation library for sparse tensors. 
+an auto-differentiation library for sparse tensors. The model weights can be found here: 
+[https://zenodo.org/records/13310914](https://zenodo.org/records/13310914). 
 
 <p align="left"><img width="800" height="800" src="val_CM.png"></p>
 
@@ -77,12 +78,12 @@ Predictions on new data can be done as follows:
 ```
 python predict.py   --data data/test \                        # path to your folder with LAS files
                     --out_file data/test_prediction.csv \     # path to the output file
-                    --net_weights model/treespecies.pth \     # path to model weights
+                    --net_weights model/treespecies_minknet.pth \     # path to model weights
                     --n_iterations 50 \ 
                     --voxel_size 0.1 
 ```
 The structure of the "data/test" directory is indicated in the schema above. PLEASE NOTE that the 
-model weights are stored in a Zenodo repository (add link here) separately. 
+model weights are stored in a Zenodo repository ([https://zenodo.org/records/13310914](https://zenodo.org/records/13310914)). 
 To predict the test data from the [tree species benchmark](https://github.com/stefp/Tr3D_species), the network was applied to the same object 50 times (--n_iterations). Each time 
 the object was randomly rotated around its Z axis. The final class label was chosen 
 using majority voting (as the most frequently predicted label).
