@@ -1,7 +1,7 @@
 # Tree species identification from drone-based, mobile and terrestrial LiDAR data using MinkNet
 
-This repository contains the scripts for training and infering a deep-learning 
-based model for tree species identification from drone-based, mobile and terrestrial LiDAR data. This work has been done 
+This repository contains the scripts for training and inferring a deep-learning 
+based model for tree species identification from drone-based, mobile and terrestrial LiDAR point clouds. This work has been done 
 in the frame of the [3DForEcoTech data science competition](https://github.com/stefp/Tr3D_species).
 The algorithm was developed using [Minkowski Engine](https://github.com/NVIDIA/MinkowskiEngine), 
 an auto-differentiation library for sparse tensors. The model weights can be found here: 
@@ -12,10 +12,10 @@ an auto-differentiation library for sparse tensors. The model weights can be fou
 
 ## Environment
 
-To set up the working environment, please follow the instructions from 
-[Minkowski Engine](https://github.com/NVIDIA/MinkowskiEngine) original source page. 
+Please follow the instructions from 
+[Minkowski Engine](https://github.com/NVIDIA/MinkowskiEngine) original source page to set up the working environment. 
 Additionally, [laspy](https://laspy.readthedocs.io/en/latest/index.html) library 
-was installed to read LAS data format. 
+was installed to read the LAS data format. 
 
 ## Neural network
 
@@ -28,8 +28,8 @@ and performing 3D convolutions in the next layers.
 ### Training
 
 We calibrated the network using a 90/10 train/val split of the data provided 
-within the [tree species benchmark](https://github.com/stefp/Tr3D_species). 
-The best model was selected based on its performance (F1-score) on validation data. 
+within the [tree species identification benchmark](https://github.com/stefp/Tr3D_species). 
+The best model was selected based on the highest performance (F1-score) on validation data. 
 We trained the network with the following hyperparameter set:
 
 - Point number: 16384
@@ -39,7 +39,7 @@ We trained the network with the following hyperparameter set:
 - Cosine learning rate scheduler (starting learning rate = 0.1)
 - Optimizer: SGD with Nesterov momentum 
 - Loss function: weighted cross-entropy
-- Data augmentation: random rotation around Z axis
+- Data augmentation: random rotation around the Z-axis
 
 The network can be retrained by executing the following line from the working directory:
 ```
@@ -57,7 +57,7 @@ The --data_root directory should be structured as follows:
 ```
 |-- data                    # root_dir
 |   |-- train               # folder containing train/val data
-|       |-- 00000.las       # the files should contain XYZ data of a single tree
+|       |-- 00000.las       # files should contain XYZ data of a single tree
 |       |-- 00001.las 
 |       |-- ...
 |   |-- test                
@@ -74,7 +74,7 @@ GPU with 12 GB memory. The maximal GPU memory consumption during training was ar
 
 ### Deploying to new data 
 
-Predictions on new data can be done as follows: 
+Predictions on new data can be made as follows: 
 ```
 python predict.py   --data data/test \                        # path to your folder with LAS files
                     --out_file data/test_prediction.csv \     # path to the output file
