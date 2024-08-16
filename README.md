@@ -72,7 +72,7 @@ The --data_root directory should be structured as follows:
 We trained the network using a [NVIDIA TITAN V](https://www.nvidia.com/en-us/titan/titan-v/) 
 GPU with 12 GB memory. The maximal GPU memory consumption during training was around 6 GB.  
 
-### Deploying to new data 
+### Inference 
 
 Predictions on new data can be made as follows: 
 ```
