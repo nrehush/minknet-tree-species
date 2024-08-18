@@ -88,4 +88,16 @@ To predict the test data from the [tree species benchmark](https://github.com/st
 the object was randomly rotated around its Z axis. The final class label was chosen 
 using majority voting (as the most frequently predicted label).
 
-
+### Citing
+If you use the model weights in your work, please cite: 
+```
+@misc{puliti2024benchmarkingtreespeciesclassification,
+      title={Benchmarking tree species classification from proximally-sensed laser scanning data: introducing the FOR-species20K dataset}, 
+      author={Stefano Puliti and Emily R. Lines and Jana Müllerová and Julian Frey and Zoe Schindler and Adrian Straker and Matthew J. Allen and Lukas Winiwarter and Nataliia Rehush and Hristina Hristova and Brent Murray and Kim Calders and Louise Terryn and Nicholas Coops and Bernhard Höfle and Samuli Junttila and Martin Krůček and Grzegorz Krok and Kamil Král and Shaun R. Levick and Linda Luck and Azim Missarov and Martin Mokroš and Harry J. F. Owen and Krzysztof Stereńczak and Timo P. Pitkänen and Nicola Puletti and Ninni Saarinen and Chris Hopkinson and Chiara Torresan and Enrico Tomelleri and Hannah Weiser and Rasmus Astrup},
+      year={2024},
+      eprint={2408.06507},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2408.06507}, 
+}
+```
