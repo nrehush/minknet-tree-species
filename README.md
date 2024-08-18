@@ -89,7 +89,7 @@ the object was randomly rotated around its Z axis. The final class label was cho
 using majority voting (as the most frequently predicted label).
 
 ### Citing
-If you use the model weights in your work, please cite: 
+If you use the code or [model weights](https://zenodo.org/records/13310914) in your work, please cite: 
 ```
 @misc{puliti2024benchmarkingtreespeciesclassification,
       title={Benchmarking tree species classification from proximally-sensed laser scanning data: introducing the FOR-species20K dataset}, 
